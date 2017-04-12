@@ -17,3 +17,11 @@
 # match_maker true,  true,  true, true, nil     # => [false, true]
 # match_maker true,  true,  true, 0, nil        # => [false, true]
 
+def match_maker(bool,*arg)
+  arg = arg.each_slice(2).to_a
+  arg.map do |first,sec|
+    first = false if first == nil #since nil is not equal to false as false is a boolean 
+    sec = false if sec == nil
+    (first != sec) === bool
+  end
+end
