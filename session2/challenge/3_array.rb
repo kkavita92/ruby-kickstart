@@ -7,5 +7,7 @@
 
 class String
   def every_other_char
+	return '' if self.size == 0
+    self.split("").map.with_index {|x,i| i.even? ? x : ''}.join
   end
 end
