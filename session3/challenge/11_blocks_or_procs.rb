@@ -30,5 +30,19 @@
 # end
 
 
-def array_init
+def array_init(s=5,&block)
+  if block_given?
+    Array.new(s,&block)    
+  else
+    (0...s).map{|i| (i*1000).to_s}
+  end
 end
+
+
+#SOLUTION: 
+
+def array_init(size=5, &block)
+  block ||= Proc.new { |i| (100 * i).to_s }  #||= conditional assignment operator => if LHS is false, nil or undefined, evaluate RHS
+  Array.new(size, &block)                    #and set LHS to result. 
+end                                          #If no block is passed through, proc will be evaluated in place 
+
