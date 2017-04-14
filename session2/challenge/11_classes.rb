@@ -18,3 +18,48 @@
 # if the parameter is greater than 99, set the number of beer bottles to 99
 # Then make a public method called print_song that outputs all stanzas from the number of bottles of beer down to zero.
 # Add any additional methods you find helpful.
+
+
+class BeerSong
+
+attr_accessor :num
+
+  def initialize(num)
+  	@num = 0 if num < 0
+  	@num = 99 if num > 99
+  	@num = num
+  end
+
+  def bottle(num)
+    num == 1 ? "bottle" : "bottles"
+  end
+
+
+  def stanza(num)
+    puts "#{converter(num)} #{bottle(num)} of beer on the wall,",
+         "#{converter(num)} #{bottle(num)} of beer,",
+         "Take one down, pass it around,",
+         "#{converter(num-1)} #{bottle(num-1)} of beer on the wall."
+  end
+
+
+  def print_song(num)
+	return "" if num == 0 
+    while num > 0
+      puts stanza(num)
+      num -= 1
+    end
+  end
+
+
+  def converter(num) #To convert integers into alphabetical counterpart 
+  	if num <= 19
+  	   %w(zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen)[num]
+    elsif num % 10 == 0
+      %w(zero ten twenty thirty forty fifty sixty seventy eighty ninety)[num/10]
+    else
+      "#{converter num/10 * 10}-#{converter num%10}"
+    end.capitalize
+  end
+  
+end
