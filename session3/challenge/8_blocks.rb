@@ -26,14 +26,18 @@
 
 
 class Person
-  attr_accessor :name
+  attr_accessor :name, :age, :quote 
 
-  def initialize(&initializer)
+  def initialize(options = {}, &initializer)
+	self.name = options[:name]         #can be set with hash argument within options 
+	self.age = options[:age]
+	self.quote = options[:quote]
     @initializer = initializer
     initializer.call self
   end
+  
 
   def reinit
-    @initializer.call self
+    @initializer.call(self)
   end
 end
