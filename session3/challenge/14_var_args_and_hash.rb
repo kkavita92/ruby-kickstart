@@ -21,11 +21,16 @@
 # problem_14 2,   5, 6, 45, 99, 13, 5, 6,  :problem => :same_ends    # => true
 # problem_14 3,   5, 6, 45, 99, 13, 5, 6,  :problem => :same_ends    # => false
 
-def problem_14
+def problem_14(*args)  #check if last argument is a hash in case has not provided
+  problem = args.pop[:problem] if args.last.is_a?(Hash) #Remove condition hash from array so rest of parameters can be passed in other methods
+  return count_clumps(*args) if problem == :count_clumps || problem == nil #If hash exists but no problem provided or if 'problem' has no value 
+  return same_ends(*args)    if problem == :same_ends 
 end
 
-def same_ends
+def count_clumps(*arg)
+  arg.map(&:to_s).join.scan(/(.)(\1)+/).size
 end
 
-def count_clumps
+def same_ends(n,*arg)
+  arg.first(n) == arg.last(n)
 end

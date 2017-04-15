@@ -4,6 +4,14 @@
 # EXAMPLES:
 # head = {:data => 1, :next => nil}
 # head = {:data => 2, :next => head}
+# head = {:data => 3, :next => head}
+# head                                # => {:data=>3, :next=>{:data=>2, :next=>{:data=>1, :next=>nil}}}
 #
 # print_list_in_reverse head   # >> "1\n2\n"
 
+
+def print_list_in_reverse(list)
+  return unless list 
+  print_list_in_reverse list[:next] #Uses recursion to go to last node and then work its way back to first 
+  puts list[:data] 
+end
