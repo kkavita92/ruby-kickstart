@@ -12,4 +12,4 @@
 def alternate_words(str)
   res = []
   str.gsub(/[.?!]\z/,'').split(' ').each_with_index {|x,i| res.push(x) if i.even?} #Remove punctuation at the end before filtering array
-  
+end
