@@ -10,7 +10,6 @@
 # alternate_words("Elementary, my dear Watson!")  # => ["Elementary", "dear"]
 
 def alternate_words(str)
-	res = []
-	str.gsub(/[.?!]\z/,'').split(' ').each_with_index {|x,i| res.push(x) if i.even?} #Remove punctuation at the end before filtering array
-	res
-end 
+  res = []
+  str.gsub(/[.?!]\z/,'').split(' ').each_with_index {|x,i| res.push(x) if i.even?} #Remove punctuation at the end before filtering array
+  
