@@ -16,6 +16,6 @@
 # prime_chars? ['a', 'b', 'cd']   # => false
 
 def prime_chars(arr)
-	num= arr.reduce(:+).size
-	(2...num).select {|x| num%x == 0}.empty? ? true : false #test if number is a prime - check if list of divisors other than itself and 1 is empty 
+  num = arr.reduce(:+).size
+  (2...num).select {|x| num%x == 0}.empty? ? true : false #test if number is a prime - check if list of divisors other than itself and 1 is empty 
 end 
