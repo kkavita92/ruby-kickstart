@@ -10,8 +10,8 @@
 # grade(15, true)   # => "B"
 
 def grade(num_books, reads_books)
-	score = 0 
-	grades = ["A","B","C","D"]
-	num_books < 10 ? score = "D" : num_books.between?(10,20) ? score = "C" : score = "B"
-	reads_books ? grades[grades.index(score) - 1] : score 
+  score = 0 
+  grades = ["A","B","C","D"]
+  num_books < 10 ? score = "D" : num_books.between?(10,20) ? score = "C" : score = "B"
+  reads_books ? grades[grades.index(score) - 1] : score 
 end
